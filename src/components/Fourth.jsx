@@ -4,12 +4,19 @@ import { useProduct } from '../contexts/Products'
 
 function Fourth() {
 
-    const { name, email } = useProduct();
+    const { items } = useProduct();
 
     return (
         <div>
-            <h2>name : {name}</h2>
-            <h2>email : {email}</h2>
+            {
+                items.map((item, index) => (
+                    <div key={index}>
+                        <h2>{item.name}</h2>
+                        <p>{item.email}</p>
+                    </div>
+                ))
+            }
+
         </div>
     )
 }

@@ -9,7 +9,11 @@ import { useState } from "react"
 
 function App() {
 
-  const { name, email } = useProduct();
+  const [items, setItems] = useState([]);
+
+  const addItems = (item) => {
+    setItems([...items, item])
+  }
 
   return (
     <>
@@ -18,7 +22,7 @@ function App() {
         <Profile />
       </UserContextProvider>
 
-      <ProductContextProvider value={{ name, email }} >
+      <ProductContextProvider value={{ items, addItems }} >
         <First />
       </ProductContextProvider>
     </>
